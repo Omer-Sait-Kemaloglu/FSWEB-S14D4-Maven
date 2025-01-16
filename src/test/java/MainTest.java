@@ -3,7 +3,7 @@ import org.example.model.Chocolate;
 import org.example.model.Coke;
 import org.example.model.ProductForSale;
 import org.example.rpg.Monster;
-import org.example.rpg.Troll;
+import org.example.model.rpg.Troll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,7 +29,12 @@ public class MainTest {
         bread = new Bread("Test", 10, "Test Bread");
         chocolate = new Chocolate("Test", 10, "Test Chocolate");
         coke = new Coke("Test", 10, "Test Coke");
-        troll = new Troll("Shrek", 1000, 100);
+        troll = new Monster("Shrek", 1000, 100) {
+            @Override
+            public double attack() {
+                return 0;
+            }
+        };
     }
 
     @DisplayName("Subclasslar Superclass değişkenlerinin değerlerine ulaşabiliyor mu?")
